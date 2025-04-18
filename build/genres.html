@@ -7,11 +7,11 @@
 </head>
 
 <body>
-    <h1>Movie G=Fenres</h1>
+    <h1>Movie Genres</h1>
     <ul id="genreList"></ul>
 
     <script>
-        fetch('/WebTest1/api/genres') // ← หรือเปลี่ยนเป็น /WebTest1/api/genres ถ้าใช้ Servlet
+        fetch('/WebTest1/api/genres') // ตรวจสอบ path ให้ตรงกับที่ mapping Servlet ไว้
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -22,7 +22,7 @@
                 const list = document.getElementById('genreList');
                 data.forEach(genre => {
                     const item = document.createElement('li');
-                    item.textContent = genre;
+                    item.innerHTML = `<span style="color:${genre.color}">${genre.genre}</span>`;
                     list.appendChild(item);
                 });
             })
