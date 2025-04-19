@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Genres</title>
 </head>
-
 <body>
     <h1>Movie Genres</h1>
     <ul id="genreList"></ul>
 
     <script>
-        fetch('/Test_1/api/genres') // ระบุ path ให้ถูกต้อง
+        fetch('/WebTest1/api/genres') // ← เปลี่ยนให้ตรงกับ context path จริง
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -22,7 +20,7 @@
                 const list = document.getElementById('genreList');
                 data.forEach(genre => {
                     const item = document.createElement('li');
-                    item.textContent = `${genre.genre} - ${genre.color}`; // แสดงชื่อประเภทและสี
+                    item.textContent = `${genre.genre} (${genre.color})`;
                     list.appendChild(item);
                 });
             })
@@ -31,5 +29,4 @@
             });
     </script>
 </body>
-
 </html>
