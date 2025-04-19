@@ -4,13 +4,14 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
-        <servlet-name>GenreServlet</servlet-name>
-        <servlet-class>GenreServlet</servlet-class>
-    </servlet>
+         <servlet>
+            <servlet-name>MovieServlet</servlet-name>
+            <servlet-class>servlets.MovieServlet</servlet-class>
+        </servlet>
+        
+        <servlet-mapping>
+            <servlet-name>MovieServlet</servlet-name>
+            <url-pattern>/movies</url-pattern>
+        </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>GenreServlet</servlet-name>
-        <url-pattern>/api/genres</url-pattern>
-    </servlet-mapping>
 </web-app>
