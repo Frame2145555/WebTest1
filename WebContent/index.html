@@ -15,73 +15,20 @@
             font-size: 16px;
             cursor: pointer;
         }
-        #moviesList {
-            margin-top: 20px;
-        }
-        .movie {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .movie h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-        .movie p {
-            margin: 5px 0 0;
-            font-size: 14px;
-        }
     </style>
 </head>
 <body>
 
     <h1>Movie Catalog</h1>
     
-    <!-- ปุ่มที่เลือกประเภทหนัง -->
-    <button onclick="loadGenre('Horror')">Horror</button>
-    <button onclick="loadGenre('Comedy')">Comedy</button>
-    <button onclick="loadGenre('Romance')">Romance</button>
-    <button onclick="loadGenre('Action')">Action</button>
-
-    <div id="moviesList"></div> <!-- ที่แสดงผลข้อมูลหนัง -->
+    <button onclick="goToGenre('Horror')">Horror</button>
+    <button onclick="goToGenre('Comedy')">Comedy</button>
+    <button onclick="goToGenre('Romance')">Romance</button>
+    <button onclick="goToGenre('Action')">Action</button>
 
     <script>
-        // ฟังก์ชันนี้จะถูกเรียกเมื่อกดปุ่ม
-        function loadGenre(genre) {
-            const url = `http://localhost:8080/WebTest1/api/movies?genre=${genre}`;
-            
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data); // ดูผลลัพธ์ที่ได้รับจาก API
-                    displayMovies(data); // ฟังก์ชันที่จะแสดงข้อมูลที่ได้ในหน้า HTML
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-
-        // ฟังก์ชันแสดงภาพยนตร์
-        function displayMovies(movies) {
-            const moviesList = document.getElementById('moviesList');
-            moviesList.innerHTML = ''; // ล้างข้อมูลเก่า
-
-            // วนลูปแสดงหนังทั้งหมด
-            movies.forEach(movie => {
-                const movieItem = document.createElement('div');
-                movieItem.classList.add('movie');
-                movieItem.innerHTML = `
-                    <h3>${movie.title}</h3>
-                    <p style="color:${movie.hexCode};">${movie.hexCode}</p>
-                `;
-                moviesList.appendChild(movieItem);
-            });
+        function goToGenre(genre) {
+            window.location.href = `catalog.html?genre=${encodeURIComponent(genre)}`;
         }
     </script>
 

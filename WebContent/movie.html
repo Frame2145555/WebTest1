@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="movieTitle">Loading...</h1>
+    <div id="tag"></div>
+    <p id="description"></p>
+
+    <script>
+        // อ่านชื่อหนังจาก URL
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
+
+        // ข้อมูลหนังจำลอง (แทนฐานข้อมูล)
+        const movies = {
+            "The Conjuring": {
+                hexCode: "#8B0000",
+                description: "ครอบครัวหนึ่งย้ายเข้าไปในบ้านชนบทและเริ่มพบกับปรากฏการณ์เหนือธรรมชาติสุดสะพรึงจนต้องขอความช่วยเหลือจากนักล่าผีชื่อดัง"
+            },
+            "Insidious": {
+                hexCode: "#8B0000",
+                description: "ครอบครัวที่ลูกชายตกอยู่ในอาการโคม่า ต้องเผชิญกับวิญญาณร้ายที่หวังยึดร่างของเขา"
+            },
+            "Hereditary": {
+                hexCode: "#8B0000",
+                description: "หลังจากการเสียชีวิตของคุณยาย ความลับมืดดำของครอบครัวถูกเปิดเผย พร้อมกับเหตุการณ์ชวนสยองที่ถาโถมเข้ามา"
+            },
+            "The Hangover": {
+                hexCode: "#FFA500",
+                description: "กลุ่มเพื่อนจัดปาร์ตี้สุดเหวี่ยงในลาสเวกัส แต่ตื่นขึ้นมาโดยจำอะไรไม่ได้เลย และต้องตามหาความจริงให้เจอก่อนงานแต่ง"
+            },
+            "Crazy Rich Asians": {
+                hexCode: "#FFC0CB",
+                description: "หญิงสาวชาวอเมริกันเดินทางไปสิงคโปร์เพื่อพบครอบครัวแฟนหนุ่ม แต่พบว่าเขาเป็นทายาทมหาเศรษฐี"
+            }
+            // เพิ่มเรื่องอื่นได้ตามต้องการ
+        };
+
+        const movie = movies[title];
+
+        if (movie) {
+            document.getElementById('movieTitle').innerText = title;
+            document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${movie.hexCode};">${movie.hexCode}</span>`;
+            document.getElementById('description').innerText = movie.description;
+        } else {
+            document.getElementById('movieTitle').innerText = "Movie not found";
+            document.getElementById('description').innerText = "No details available.";
+        }
+    </script>
+</body>
+</html>
