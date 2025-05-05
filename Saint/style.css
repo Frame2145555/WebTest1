@@ -1,0 +1,79 @@
+body {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6641bbbc-78c6-4cce-912f-9ce3ed931446/da28aqe-0acc22ff-73a8-4ff4-812a-3faf117bb803.jpg/v1/fit/w_800,h_543,q_70,strp/fire_and_ice_by_jojoesart_da28aqe-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQzIiwicGF0aCI6IlwvZlwvNjY0MWJiYmMtNzhjNi00Y2NlLTkxMmYtOWNlM2VkOTMxNDQ2XC9kYTI4YXFlLTBhY2MyMmZmLTczYTgtNGZmNC04MTJhLTNmYWYxMTdiYjgwMy5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.V6oq8Ykbd67WgnuPJL5jMksFQ9tn76_cz4RPcSMRYB8");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.WebName {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+.WebName h1 {
+  color: red;
+  margin: 0;
+}
+
+.box {
+  background-color: rgba(72, 72, 72, 0.8);
+  margin: 100px auto;
+  padding: 40px;
+  width: 300px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.blackAl {
+  color: greenyellow;
+  margin-bottom: 20px;
+}
+
+.box button {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #222;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.box button:hover {
+  background-color: greenyellow;
+  color: black;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    justify-content: center;
+    margin-top: 30px; /* ระยะห่างจากข้อความหัวข้อด้านบน */
+  }
+  
+  .button-container button {
+    width: 140px;
+    height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #222;
+    color: white;
+    transition: background-color 0.3s;
+    margin: 5px; /* เพิ่มระยะห่างเพิ่มเติมรอบปุ่ม */
+  }
+  
+  .button-container button:hover {
+    background-color: greenyellow;
+    color: black;
+  }
+  
