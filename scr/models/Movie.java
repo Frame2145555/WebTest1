@@ -5,7 +5,7 @@ import genres.Genre;
 public class Movie {
     private final String title;
     private final Genre genre;
-    private final String description; // เพิ่ม
+    private final String description;
 
     public Movie(String title, Genre genre, String description) {
         this.title = title;

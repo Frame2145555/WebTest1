@@ -34,7 +34,7 @@
         if (!title || !genre) {
             document.getElementById('movieTitle').innerText = "Missing parameters";
         } else {
-            const url = `http://localhost:8080/WebTest1/api/movieDetail?title=${encodeURIComponent(title)}&genre=${encodeURIComponent(genre)}`;
+            const url = `http://localhost:8080/WebTest1/movieDetail?title=${encodeURIComponent(title)}&genre=${encodeURIComponent(genre)}`;
             console.log("Fetching from:", url); // <--- เพิ่มตรงนี้ด้วย
     
             fetch(url)
