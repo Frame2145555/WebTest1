@@ -1,0 +1,46 @@
+<!-- catalog.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies by Genre</title>
+</head>
+<body>
+    <h1 id="title">Loading...</h1>
+    <ul id="movieList"></ul>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const genre = urlParams.get('genre');
+
+        document.getElementById('title').innerText = `${genre} Movies`;
+
+        fetch(`http://localhost:8080/WebTest1/api/movies?genre=${encodeURIComponent(genre)}`)
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json();
+            })
+            .then(data => {
+                const list = document.getElementById('movieList');
+                list.innerHTML = '';
+
+                data.forEach(movie => {
+                    const li = document.createElement('li');
+
+                    const link = document.createElement('a');
+                    // ✅ ส่งทั้ง genre และ title ไปยัง movie.html
+                    link.href = `movie.html?title=${encodeURIComponent(movie.title)}&genre=${encodeURIComponent(genre)}`;
+                    link.textContent = movie.title;
+                    link.style.color = movie.hexCode;
+                    link.style.textDecoration = "none";
+
+                    li.appendChild(link);
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                document.getElementById('title').innerText = "Failed to load movies";
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!-- movie.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="movieTitle">Loading...</h1>
+    <div id="tag"></div>
+    <p id="description"></p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
+        const genre = params.get('genre');
+    
+        console.log("Title:", title);   // <--- เพิ่มตรงนี้
+        console.log("Genre:", genre);   // <--- และตรงนี้
+    
+        if (!title || !genre) {
+            document.getElementById('movieTitle').innerText = "Missing parameters";
+        } else {
+            const url = `http://localhost:8080/WebTest1/movieDetail?title=${encodeURIComponent(title)}&genre=${encodeURIComponent(genre)}`;
+            console.log("Fetching from:", url); // <--- เพิ่มตรงนี้ด้วย
+    
+            fetch(url)
+                .then(response => {
+                    console.log("Response status:", response.status); // <--- ดูสถานะ response
+    
+                    if (!response.ok) throw new Error("Movie not found");
+                    return response.json();
+                })
+                .then(movie => {
+                    console.log("Received movie:", movie); // <--- log ข้อมูลที่ได้จาก server
+    
+                    document.getElementById('movieTitle').innerText = title;
+                    document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${movie.hexCode};">${movie.hexCode}</span>`;
+                    document.getElementById('description').innerText = movie.description;
+                })
+                .catch(error => {
+                    console.error("Fetch error:", error); // <--- จับ error
+                    document.getElementById('movieTitle').innerText = "Movie not found";
+                    document.getElementById('description').innerText = "No details available.";
+                });
+        }
+    </script>
+</body>
+</html>
