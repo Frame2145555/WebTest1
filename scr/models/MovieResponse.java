@@ -11,7 +11,6 @@ public class MovieResponse {
         this.hexCode = hexCode;
     }
 
-    // Getter
     public String getTitle() {
         return title;
     }

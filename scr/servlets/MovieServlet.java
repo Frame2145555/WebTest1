@@ -1,62 +1,50 @@
 package servlets;
 
 import com.google.gson.Gson;
-
 import models.Movie;
-import models.MovieDTO;
-import moviedata.MovieDataAction;
-import moviedata.MovieDataComedy;
-import moviedata.MovieDataHorror;
-import moviedata.MovieDataRomance;
+import moviedata.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @WebServlet("/api/movies")
 public class MovieServlet extends HttpServlet {
+    private final Gson gson = new Gson();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    try {
-        String genreParam = req.getParameter("genre");
-        List<Movie> movies = new ArrayList<>();
-
-        if (genreParam != null && !genreParam.isEmpty()) {
-            switch (genreParam.toLowerCase()) {
-                case "horror":
-                    movies = new MovieDataHorror().getMovies();
-                    break;
-                case "comedy":
-                    movies = new MovieDataComedy().getMovies();
-                    break;
-                case "romance":
-                    movies = new MovieDataRomance().getMovies();
-                    break;
-                case "action":
-                    movies = new MovieDataAction().getMovies();
-                    break;
-                default:
-                    break;
-            }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String genre = request.getParameter("genre");
+        if (genre == null || genre.isEmpty()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing 'genre' parameter");
+            return;
         }
 
-        List<MovieDTO> movieDTOs = movies.stream()
-                .map(m -> new MovieDTO(m.getTitle(), m.getHexCode(), m.getDescription()))
-                .collect(Collectors.toList());
+        MovieData movieData;
+        switch (genre.toLowerCase()) {
+            case "horror":
+                movieData = new MovieDataHorror();
+                break;
+            case "comedy":
+                movieData = new MovieDataComedy();
+                break;
+            case "romance":
+                movieData = new MovieDataRomance();
+                break;
+            case "action":
+                movieData = new MovieDataAction();
+                break;
+            default:
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid genre");
+                return;
+        }
 
-        resp.setContentType("application/json");
-        PrintWriter out = resp.getWriter();
-        out.print(new Gson().toJson(movieDTOs));
-        out.flush();
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
+        List<Movie> movies = movieData.getMovies();
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.print(gson.toJson(movies));
     }
-}
 }

@@ -3,6 +3,6 @@ package genres;
 public class Horror implements Genre {
     @Override
     public String getHexColor() {
-        return "#8B0000"; // Dark red
+        return "#8B0000";
     }
 }

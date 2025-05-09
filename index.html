@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Catalog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Tag</title>
+  <link rel="stylesheet" href="WebPage_1.css">
+</head>
+
+<body>
+  <div class="WebName">
+    <h1>Movie2Paid</h1>
+  </div>
+
+  <div class="box">
+  <h1 class="blackAl">Select movie tag :</h1>
+  <div class="button-container">
     <h1>Movie Catalog</h1>
     
     <button onclick="goToGenre('Horror')">Horror</button>
@@ -28,9 +24,12 @@
 
     <script>
         function goToGenre(genre) {
-            window.location.href = `index_2.html?genre=${encodeURIComponent(genre)}`;
+            window.location.href = `catalog.html?genre=${encodeURIComponent(genre)}`;
         }
     </script>
+  </div>
+</div>
 
 </body>
+
 </html>

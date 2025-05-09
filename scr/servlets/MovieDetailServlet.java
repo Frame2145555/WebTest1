@@ -1,20 +1,14 @@
 package servlets;
 
 import com.google.gson.Gson;
-
 import models.*;
-import moviedata.MovieData;
-import moviedata.MovieDataHorror;
-import moviedata.MovieDataComedy;
-import moviedata.MovieDataRomance;
-import moviedata.MovieDataAction;
+import moviedata.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 @WebServlet("/movieDetail")
 public class MovieDetailServlet extends HttpServlet {
@@ -31,7 +25,6 @@ public class MovieDetailServlet extends HttpServlet {
         }
 
         MovieData movieData;
-
         switch (genre.toLowerCase()) {
             case "horror":
                 movieData = new MovieDataHorror();
@@ -50,24 +43,19 @@ public class MovieDetailServlet extends HttpServlet {
                 return;
         }
 
-        List<Movie> movies = movieData.getMovies();
+        Movie movie = movieData.getMovies(title);
 
-        for (Movie movie : movies) {
-            if (movie.getTitle().equalsIgnoreCase(title)) {
-                MovieResponse movieResponse = new MovieResponse(
-                    movie.getTitle(),
-                    movie.getDescription(),
-                    movie.getGenre().getHexColor()
-                );
-                response.setContentType("application/json");
-                PrintWriter out = response.getWriter();
-                out.print(gson.toJson(movieResponse));
-                return;
-            }
+        if (movie != null) {
+            MovieResponse movieResponse = new MovieResponse(
+                movie.getTitle(),
+                movie.getDescription(),
+                movie.getGenre().getHexColor()
+            );
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(gson.toJson(movieResponse));
+        } else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Movie not found");
         }
-        
-        
-
-        response.sendError(HttpServletResponse.SC_NOT_FOUND, "Movie not found");
     }
 }

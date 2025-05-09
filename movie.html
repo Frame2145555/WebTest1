@@ -55,13 +55,11 @@
                     document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${hexCode};">${genreName}</span>`;
                     document.getElementById('description').innerText = movie.description;
 
-                    // ตั้งค่ารูปภาพตามชื่อหนัง
                     const image = document.getElementById('movieImage');
                     image.src = `images/${title}.jpg`;
 
-                    // fallback ถ้ารูปไม่โหลดได้
                     image.onerror = () => {
-                        image.src = "images/default.jpg"; // รูป default สำรอง
+                        image.src = "images/default.jpg";
                     };
                 })
                 .catch(error => {
