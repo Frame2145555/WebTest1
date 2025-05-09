@@ -24,13 +24,6 @@
     </div>
 
     <script>
-        const hexToGenre = {
-            "#8B0000": "Horror",
-            "#FFD700": "Comedy",
-            "#FF69B4": "Romance",
-            "#1E90FF": "Action"
-        };
-
         const params = new URLSearchParams(window.location.search);
         const title = params.get('title');
         const genre = params.get('genre');
@@ -47,11 +40,7 @@
                 })
                 .then(movie => {
                     document.getElementById('movieTitle').innerText = title;
-
-                    const hexCode = movie.hexCode.toUpperCase();
-                    const genreName = hexToGenre[hexCode] || "Unknown Genre";
-
-                    document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${hexCode};">${genreName}</span>`;
+                    document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${movie.hexCode};">${movie.hexCode}</span>`;
                     document.getElementById('description').innerText = movie.description;
                 })
                 .catch(error => {

@@ -2,7 +2,7 @@ package servlets;
 
 import com.google.gson.Gson;
 
-import models.Movie;
+import models.*;
 import moviedata.MovieData;
 import moviedata.MovieDataHorror;
 import moviedata.MovieDataComedy;
@@ -54,12 +54,19 @@ public class MovieDetailServlet extends HttpServlet {
 
         for (Movie movie : movies) {
             if (movie.getTitle().equalsIgnoreCase(title)) {
+                MovieResponse movieResponse = new MovieResponse(
+                    movie.getTitle(),
+                    movie.getDescription(),
+                    movie.getGenre().getHexColor()
+                );
                 response.setContentType("application/json");
                 PrintWriter out = response.getWriter();
-                out.print(gson.toJson(movie));
+                out.print(gson.toJson(movieResponse));
                 return;
             }
         }
+        
+        
 
         response.sendError(HttpServletResponse.SC_NOT_FOUND, "Movie not found");
     }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Tag</title>
+  <link rel="stylesheet" href="WebPage_1.css">
+</head>
+
+<body>
+  <div class="WebName">
+    <h1>Movie2Paid</h1>
+  </div>
+
+  <div class="box">
+  <h1 class="blackAl">Select movie tag :</h1>
+  <div class="button-container">
+    <h1>Movie Catalog</h1>
+    
+    <button onclick="goToGenre('Horror')">Horror</button>
+    <button onclick="goToGenre('Comedy')">Comedy</button>
+    <button onclick="goToGenre('Romance')">Romance</button>
+    <button onclick="goToGenre('Action')">Action</button>
+
+    <script>
+        function goToGenre(genre) {
+            window.location.href = `catalog.html?genre=${encodeURIComponent(genre)}`;
+        }
+    </script>
+  </div>
+</div>
+
+</body>
+
+</html>
