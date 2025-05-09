@@ -1,308 +1,269 @@
-/*
-CSS Credit: http://www.templatemo.com/
-*/
-
 /* 
+CSS Credit: http://www.templatemo.com/
 Book Store Template 
 http://www.templatemo.com/preview/templatemo_086_book_store 
 */
+
 body {
-	margin: 0;
-	padding: 0;
-	line-height: 1.5em;
-	font-family: Verdana, Arial, san-serif;
-	font-size: 11px;
-	color: #ffffff;
-	background: #4b4743;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 11px;
+    color: #ffffff;
+    background: #4b4743;
+    background-image: url(https://cdn.photoroom.com/v2/image-cache?path=gs://background-7ef44.appspot.com/backgrounds_v3/black/49_-_black.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
 }
 
-body{
-	background-image: url(https://cdn.photoroom.com/v2/image-cache?path=gs://background-7ef44.appspot.com/backgrounds_v3/black/49_-_black.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-
-
-}
-
-
-p {
-	margin: 0px;
-	padding: 0px;
+p, img {
+    margin: 0;
+    padding: 0;
 }
 
 img {
-	margin: 0px;
-	padding: 0px;
-	border: none;
+    border: none;
 }
 
-
 .cleaner {
-	clear: both;
-	width: 100%;
-	height: 1px;
-	font-size: 1px;	
+    clear: both;
+    width: 100%;
+    height: 1px;
+    font-size: 1px;	
 }
 
 .cleaner_with_height {
-	clear: both;
-	width: 100%;
-	height: 30px;
-	font-size: 1px;	
+    clear: both;
+    width: 100%;
+    height: 30px;
+    font-size: 1px;	
 }
 
 .cleaner_with_width {
-	float: left;
-	width: 20px;
-	height: 30px;
-	font-size: 1px;	
+    float: left;
+    width: 20px;
+    height: 30px;
+    font-size: 1px;	
 }
 
-.buy_now_button a{
-	clear: both;
-	text-align: center;
-	display: block;
-	width: 100px;
-	padding: 4px 0 5px 0;
-	margin-bottom: 10px; 
-	background: url(images/templatemo_btn_02.jpg) no-repeat;
-	color: #FFFFFF;
-	font-weight: bold;
-	text-decoration: none;
+.buy_now_button a,
+.detail_button a {
+    display: block;
+    width: 100px;
+    padding: 4px 0 5px 0;
+    margin-bottom: 10px; 
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    background-repeat: no-repeat;
 }
 
-.detail_button a{
-	clear: both;
-	text-align: center;
-	display: block;
-	width: 100px;
-	padding: 4px 0 5px 0;
-	margin-bottom: 10px; 
-	background: url(images/templatemo_btn_01.jpg) no-repeat;
-	color: #ffffff;
-	font-weight: bold;
-	text-decoration: none;
+.buy_now_button a {
+    background-image: url(images/templatemo_btn_02.jpg);
 }
 
-#templatemo_container{
-	width: 960px;
-	margin: 0 auto;
-	padding: 0 10px;
-	background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y;
+.detail_button a {
+    background-image: url(images/templatemo_btn_01.jpg);
 }
 
+#templatemo_container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 10px;
+    background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y;
+}
 
-/* menu */
-/* ****รูปบน**** */
 #templatemo_menu {
-	clear: both;
-	width: 960px;
-	height: 45px;
-	background: url(https://c3.ndc.nasa.gov/dashlink/static/media/dataset/templatemo_main_bg_top_wrapper.jpg) no-repeat;
+    clear: both;
+    width: 960px;
+    height: 45px;
+    background: url(https://c3.ndc.nasa.gov/dashlink/static/media/dataset/templatemo_main_bg_top_wrapper.jpg) no-repeat;
 }
 
-
-
-/* header */
-#templatemo_header {
-	clear: both;
-	width: 960px;
-	height:290px;
-	padding: 0;
-	margin: 0;
-	background: url(https://cdn.discordapp.com/attachments/939541912275279902/1368666900032389220/image_5.png?ex=68190de1&is=6817bc61&hm=9485d344143d5fa057d8a810e500945b817365c4a6bca58a874fc6b229d72e85&)
+#templatemo_header a, a:hover {
+    color: #ffffff;
 }
 
-#templatemo_header a,a:hover {
-	color: #ffffff;
-}
-
-#templatemo_header #templatemo_special_offers {
-	float: left;
-	font-size: 14px;	
-	margin-top: 95px;
-	margin-left: 490px;
-	width: 180px;
+#templatemo_special_offers {
+    float: left;
+    font-size: 14px;	
+    margin-top: 95px;
+    margin-left: 490px;
+    width: 180px;
 }
 
 #templatemo_special_offers a {
-	font-size: 12px;
+    font-size: 12px;
 }
 
-#templatemo_special_offers  p {
-	margin: 0 0 20px 0;
+#templatemo_special_offers p {
+    margin: 0 0 20px 0;
 }
+
 #templatemo_special_offers p span {
-	font-size: 18px;
+    font-size: 18px;
 }
 
-#templatemo_header #templatemo_new_books {
-	float: left;
-	margin-top: 90px;	
-	margin-left: 55px;
-	width: 180px;
+#templatemo_new_books {
+    float: left;
+    margin-top: 90px;	
+    margin-left: 55px;
+    width: 180px;
 }
 
 #templatemo_new_books ul {
-	 margin: 0 0 10px 0;
-	 padding: 0 0 0 20px;
+    margin: 0 0 10px 0;
+    padding: 0 0 0 20px;
 }
 
 #templatemo_new_books li {
-	 margin: 0;
-	 padding: 0; 
+    margin: 0;
+    padding: 0; 
 }
 
-
-/* end of header */
-
-
-/* content */
+/* Content */
 #templatemo_content {
-	clear: both;
-	justify-content: center;
-	width: 920px;
-	padding: 0 144px;
+    clear: both;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-sizing: border-box;
+	padding-top: 10px;
 }
 
-#templatemo_content #templatemo_content_left {
-	float: left;
-	width: 188px;
-	padding: 10px;
-	background-color: #171716;
-	border: 1px solid #212120;
+#templatemo_content_left {
+    width: 188px;
+    padding: 10px;
+    background-color: #171716;
+    border: 1px solid #212120;
 }
 
-#templatemo_content #templatemo_content_right {
-	float: center;
-	width: 670px;
+#templatemo_content_right {
+    flex-grow: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 0;
+    margin-top: 0;
 }
 
-
-/* #templatemo_content_left .templatemo_content_left_section{
-	clear: both;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #2b2b2a;
-	margin-bottom: 20px;
-} */
-
-/* .templatemo_content_left_section h1 {
-	font-size: 14px;
-	color: #000000;
-	padding: 0 0 5px 0;
-	margin: 0 0 10px 0;
-	border-bottom: 1px dotted #cbc750;
-} */
-
-/* .templatemo_content_left_section ul {
-	padding: 0;
-	margin: 0;
-}
-
-.templatemo_content_left_section ul li{
-	padding: 0 0 3px 10px;	
-	list-style: none;
-}
-
-.templatemo_content_left_section ul li a{
-	font-weight: normal;
-	text-decoration: none;
-	color: #969547;
-}
-
-.templatemo_content_left_section li a:hover, .templatemo_content_left_section li .current{
-	color: #fcf88e;
-} */
-
-
-
-
-/* *****กรอบ***** */
-#templatemo_content_right .templatemo_product_box {
-	float: left;
-	width: 303px;
-	height: 210px;
-	padding: 10px;
-	border: 1px solid #333;
-}
-/* สีตัวหนังสือ */
-#templatemo_content_right h1 {
-	padding: 10px;
-	margin: 0 0 20px 0;
-	font-size: 15px;
-	color: #ffffff;
-	background: url(https://c3.ndc.nasa.gov/dashlink/static/media/dataset/templatemo_main_bg_bottom.jpg);
-}
-
-#templatemo_content_right h2 {
-	padding: 0 0 0 0;
-	margin: 0 0 20px 0;
-	font-size: 12px;
-	color: #e6e154;
-}
-
-#templatemo_content_right h3 {
-	padding: 0;
-	margin: 0 0 20px 0;
-	font-size: 18px;
-	color: #85391f;
-}
-
-#templatemo_content_right ul {
-	margin: 0 0 20px 0;
-	padding: 0 0 0 20px;
-	list-style: none;
-}
-
-#templatemo_content_right li {
-	padding: 0 0 3px 0;
-}
-
-#templatemo_content_right .image_panel {
-	float: left;
-	width: 100px;
-	margin-right: 20px;
-}
-
-#templatemo_content_right p {
-	text-align: justify;
-	padding: 0 0 8px 0;
-}
-
-.templatemo_product_box h1 span {
-	font-weight: normal;
+/* Box for each movie */
+.templatemo_product_box {
+    width: 200px;
+    background-color: #1c1c1b;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-align: center;
 }
 
 .templatemo_product_box img {
-	float: left;
-	margin-right: 20px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.templatemo_product_box h1 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    background: url(https://c3.ndc.nasa.gov/dashlink/static/media/dataset/templatemo_main_bg_bottom.jpg);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.templatemo_product_box h2 {
+    font-size: 12px;
+    color: #e6e154;
+    margin-bottom: 5px;
+}
+
+.templatemo_product_box h3 {
+    font-size: 18px;
+    color: #85391f;
+    margin-bottom: 10px;
+}
+
+.templatemo_product_box p {
+    color: #ccc;
+    font-size: 11px;
+    text-align: justify;
+    margin-bottom: 10px;
 }
 
 .templatemo_product_box .product_info {
-	float: left;
-	width: 180px;
+    font-size: 11px;
+    color: #ccc;
 }
 
-.product_info p {
-	margin-bottom: 15px;
+#movieContainer img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* end of content */
-
-/* footer */
+/* Footer */
 #templatemo_footer {
-	clear: both;
-	width: 960px;
-	padding: 20px 0px 20px 0;
-	text-align: center;
-	border-top: 1px solid #25211e;
-	color: #999;
-	background-color: #111110;
+    clear: both;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #25211e;
+    color: #999;
+    background-color: #111110;
 }
 
-#templatemo_footer a{
-	color: #fff;
-	font-weight: normal;
+#templatemo_footer a {
+    color: #fff;
+    font-weight: normal;
 }
-/* end of footer */
+
+#movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+}
+
+.templatemo_product_box {
+    width: calc(50% - 20px);
+    background-color: #000000;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.templatemo_product_box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}

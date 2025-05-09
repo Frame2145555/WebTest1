@@ -1,86 +1,84 @@
+/* พื้นหลังและจัดกล่องให้อยู่กลางจอ */
 body {
     background-color: black;
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    height: 100vh;           
-    margin: 0; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* กล่องหลักที่รวมทุกอย่าง */
 .Box {
     width: 600px;
-    height: 700px;
     background-color: rgb(38, 37, 37);
     border: 3px solid white;
     border-radius: 10px;
-    position: relative; 
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* เว้นระยะห่างระหว่างแต่ละกล่อง */
     overflow: hidden;
-    
-
 }
 
+/* รูปภาพหนัง */
 .corner-img {
     width: 300px;
-    height: 370px;
+    height: auto;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 5px;
     border: 3px solid white;
-    
-  }
+}
 
+/* กล่องชื่อหนังและ genre */
 .text-box {
-    position: absolute;
-    top: 20px;
-    left: 340px;
     background-color: rgb(73, 62, 62);
     padding: 20px;
     border-radius: 8px;
     color: rgb(232, 48, 48);
-    max-width: 250px;
+    max-width: 90%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border: 3px solid white;
-    
 }
 
-.text-box h3 {
-    margin: 0 auto; 
-    padding: 0; 
-    width: 100%;
-    text-align: center;
+.text-box h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
     color: rgb(232, 48, 48);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-    font-size: 30px;
-    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-.text-box p {
-    margin: 0 auto; 
-    padding: 0; 
-    width: 100%;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
-    font-size: 20px;
-    font-weight: bold;
-
+.text-box #tag {
+    margin-top: 10px;
 }
 
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
 
-
-.text-boxunder{
-    position: absolute;
-    bottom: 180px;
-    left: 50px;
+/* กล่องเรื่องย่อ */
+.text-boxunder {
     background-color: rgb(51, 44, 44);
-    padding: 15px;
+    padding: 15px 20px;
     border-radius: 20px;
     color: white;
     width: fit-content;
-    max-width: 80%;
+    max-width: 90%;
     text-align: center;
     font-family: 'Arial', sans-serif;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     border: 3px solid white;
 }
 
+.text-boxunder p {
+    margin: 0;
+    font-size: 16px;
+}

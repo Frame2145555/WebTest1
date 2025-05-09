@@ -5,9 +5,11 @@
     <title>Movies by Genre</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <link href="WebPage_2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="WebPage_2.css" type="text/css">
+
 </head>
 <body>
+
 <div id="templatemo_container">
     <div id="templatemo_menu">
         <ul></ul>
@@ -44,22 +46,54 @@
         .then(data => {
             const container = document.getElementById('movieContainer');
             container.innerHTML = '';
-
+        
             data.forEach(movie => {
                 const movieBox = document.createElement('div');
                 movieBox.className = 'templatemo_product_box';
-
-                movieBox.innerHTML = `
-                    <h1 style="color: ${movie.hexCode};">${movie.title} <span>(${genre})</span></h1>
-                    <img src="images/templatemo_image_01.jpg" alt="image" />
-                    <div class="product_info">
-                        <p>${movie.description || 'No description available.'}</p>
-                        <a href="movie.html?title=${encodeURIComponent(movie.title)}&genre=${encodeURIComponent(genre)}"
-                           style="color: ${movie.hexCode}; text-decoration: none;">View Details</a>
-                    </div>
-                    <div class="cleaner">&nbsp;</div>
+        
+                // Container ที่รวมภาพและชื่อหนังในแถวเดียวกัน
+                const imgAndTitle = document.createElement('div');
+                imgAndTitle.style.display = 'flex';
+                imgAndTitle.style.alignItems = 'center';
+                imgAndTitle.style.gap = '10px';
+                imgAndTitle.style.marginBottom = '10px';
+        
+                // รูปภาพ
+                const imageFileName = movie.title + '.jpg';
+                const image = document.createElement('img');
+                image.src = `images/${imageFileName}`;
+                image.alt = "Movie Image";
+                image.style.width = '100px';
+                image.style.height = '150px';
+                image.style.objectFit = 'cover';
+                image.style.borderRadius = '5px';
+                image.onerror = () => {
+                    image.src = 'images/default.jpg'; // fallback
+                };
+        
+                // ชื่อหนัง
+                const title = document.createElement('h1');
+                title.textContent = movie.title;
+                title.style.color = movie.hexCode;
+                title.style.margin = '0';
+                title.style.fontSize = '16px';
+        
+                imgAndTitle.appendChild(image);
+                imgAndTitle.appendChild(title);
+        
+                movieBox.appendChild(imgAndTitle);
+        
+                // รายละเอียดเพิ่มเติม
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'product_info';
+                infoDiv.innerHTML = `
+                    <p>${movie.description || 'No description available.'}</p>
+                    <a href="movie.html?title=${encodeURIComponent(movie.title)}&genre=${encodeURIComponent(genre)}"
+                       style="color: ${movie.hexCode}; text-decoration: none;">View Details</a>
                 `;
-
+        
+                movieBox.appendChild(infoDiv);
+        
                 container.appendChild(movieBox);
             });
         })

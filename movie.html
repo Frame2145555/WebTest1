@@ -8,9 +8,10 @@
 <body>
     <div class="Box">
         <img 
+            id="movieImage"
             class="corner-img" 
-            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTTom_YFyhdPL_hw7a4QxB75uy9RNUGdRIDqieXM_1vm29zo0Id" 
-            alt="image"
+            src="" 
+            alt="Movie Image"
         >
 
         <div class="text-box">
@@ -53,6 +54,15 @@
 
                     document.getElementById('tag').innerHTML = `<span class="tag" style="background-color: ${hexCode};">${genreName}</span>`;
                     document.getElementById('description').innerText = movie.description;
+
+                    // ตั้งค่ารูปภาพตามชื่อหนัง
+                    const image = document.getElementById('movieImage');
+                    image.src = `images/${title}.jpg`;
+
+                    // fallback ถ้ารูปไม่โหลดได้
+                    image.onerror = () => {
+                        image.src = "images/default.jpg"; // รูป default สำรอง
+                    };
                 })
                 .catch(error => {
                     console.error("Fetch error:", error);

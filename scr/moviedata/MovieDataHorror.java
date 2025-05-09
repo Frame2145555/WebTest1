@@ -11,7 +11,8 @@ public class MovieDataHorror extends MovieData {
     public List<Movie> getMovies() {
         return Arrays.asList(
             new Movie("The Haunting", new Horror(), "A family moves into a haunted mansion and is tormented by spirits."),
-            new Movie("Silent Night", new Horror(), "A group of friends celebrate Christmas, unaware of the lurking danger.")
+            new Movie("Silent Night", new Horror(), "A group of friends celebrate Christmas, unaware of the lurking danger."),
+            new Movie("halloween 1978", new Horror(), "ไมเคิล จับแทง ตูดเป็นรู")
         );
     }
 }
